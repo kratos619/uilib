@@ -1,0 +1,17 @@
+.ui-snackbar.active {
+    display: block;
+    /* margin-top: 0; */
+}
+
+.ui-snackbar {
+    width: 300px;
+    height: 100px;
+    background-color: #ff6565;
+    margin-top: 10px;
+    padding: 5px;
+    position: fixed;
+    right: 0px;
+    top: 0;
+    z-index: 10000;
+    display: none;
+}
