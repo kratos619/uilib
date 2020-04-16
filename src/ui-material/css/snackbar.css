@@ -1,17 +1,80 @@
-.ui-snackbar.active {
-    display: block;
-    /* margin-top: 0; */
+div .squre {
+    background-color: yellow;
+    height: 100px;
+    width: 100px;
+
+}
+
+/* div .squre:hover {
+    transition: transform 1s;
+    transform: rotate(360deg);
+} */
+
+/* .ui-snackbar:hover {
+    transition: transform 1s;
+    transform: rotate(360deg);
+} */
+/* html {
+    font-family: "Nunito",
+        Source Sans Pro,
+        Helvetica Neue,
+        Arial,
+        sans-serif !important;
+} */
+.ui-snackbar>.messageContainer {
+    font-size: 11px;
+    line-height: 1.2;
+    font-weight: 800;
+    word-wrap: break-word;
 }
 
 .ui-snackbar {
     width: 300px;
-    height: 100px;
-    background-color: #ff6565;
+    height: auto;
+    padding: 20px;
+    background-color: #AC8FFD;
+    color: #fff;
     margin-top: 10px;
     padding: 5px;
-    position: fixed;
-    right: 0px;
-    top: 0;
     z-index: 10000;
-    display: none;
+    align-items: center;
+    border-radius: 10px;
+    text-align: center;
+    top: 0;
+    visibility: hidden;
+    right: -10px;
+    position: fixed;
+    transition: transform .1s;
+}
+
+.ui-snackbar:hover {
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.13);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.13);
+    box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.13);
+    transform: scale(1.01, 1.01);
+}
+
+.squreAnimations {
+    animation: showNotification .3s forwards;
+    animation-timing-function: ease-out;
+}
+
+
+
+@keyframes showNotification {
+    0% {
+        visibility: hidden;
+        opacity: 0;
+        right: 0px;
+    }
+
+    70% {
+        visibility: visible;
+        right: 46px;
+    }
+
+    100% {
+        visibility: visible;
+        right: 20px;
+    }
 }

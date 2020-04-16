@@ -2,18 +2,21 @@ import '../css/snackbar.css'
 class Snackbar {
     constructor() {
         this.snackbar = document.createElement('div');
-    }
+        this.mainDiv = document.createElement('div');
+        this.init();
 
+    }
     init() {
         this.snackbar.classList.add('ui-snackbar');
         document.querySelector('body').appendChild(this.snackbar);
     }
-    show(message) {
-        this.snackbar.textContent = message
-        this.snackbar.classList.add('active');
+    show(options) {
+        this.snackbar.textContent = options.message || ""
+        this.snackbar.classList.add('squreAnimations');
         setTimeout(() => {
-            this.snackbar.classList.remove('active');
-        }, 4000);
+            this.snackbar.classList.remove('squreAnimations');
+            document.querySelector('body').removeChild(this.snackbar);
+        }, options.timeOut || 1000);
     }
 
 }
