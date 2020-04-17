@@ -1,22 +1,53 @@
 import '../css/snackbar.css'
 class Snackbar {
     constructor() {
-        this.snackbar = document.createElement('div');
-        this.mainDiv = document.createElement('div');
         this.init();
+        this.textAreaContainer = ''
+    }
+
+    __changeColor(type) {
+        let colorCode = {
+            default: "#2E2E2E",
+            warning: "#ffbb33",
+            success: "#00C851",
+            info: "#33b5e5",
+            error: "#ff4444"
+        }
+        return colorCode[type];
 
     }
     init() {
-        this.snackbar.classList.add('ui-snackbar');
-        document.querySelector('body').appendChild(this.snackbar);
+        // create Dynamic Template
+        /* <div id="ui-snackbar-notification-main" class="ui-snackbar squreAnimations">
+                <div class="ui-snckbar-messageArea"></div>
+                  <div class="ui-snackbar-footer"></div>
+        </div> */
+        this.snackbar = document.createElement('div');
+        let textContentArea = document.createElement('div');
+        let footer = document.createElement('div');
+        this.snackbar.id = 'ui-snackbar-notification-main';
+        this.snackbar.className = 'ui-snackbar';
+        textContentArea.className = 'ui-snckbar-messageArea';
+        footer.className = 'ui-snackbar-footer';
+        this.snackbar.appendChild(textContentArea);
+        this.snackbar.appendChild(footer);
+        document.getElementsByTagName('body')[0].appendChild(this.snackbar);
+        this.textAreaContainer = textContentArea;
     }
     show(options) {
-        this.snackbar.textContent = options.message || ""
-        this.snackbar.classList.add('squreAnimations');
+        if (!options.message) throw ("Message Required ex {message: 'some text' } ");
+        document.querySelector('#ui-snackbar-notification-main .ui-snckbar-messageArea').innerText = options.message;
+        this.snackbar.classList.add('ui-show-notification-cl');
+        this.snackbar.style.backgroundColor = this.__changeColor(options.type) || this.__changeColor("default");
+        if (options.cbfun || options.cbfun instanceof Function) {
+            options.cbfun()
+        }
+
         setTimeout(() => {
-            this.snackbar.classList.remove('squreAnimations');
-            document.querySelector('body').removeChild(this.snackbar);
+            this.snackbar.classList.remove('ui-show-notification-cl');
+            document.getElementById('ui-snackbar-notification-main').remove();
         }, options.timeOut || 1000);
+
     }
 
 }

@@ -21,10 +21,9 @@ div .squre {
         Arial,
         sans-serif !important;
 } */
-.ui-snackbar>.messageContainer {
-    font-size: 11px;
+#ui-snackbar-notification-main .ui-snckbar-messageArea {
+    font-size: 18px;
     line-height: 1.2;
-    font-weight: 800;
     word-wrap: break-word;
 }
 
@@ -43,18 +42,17 @@ div .squre {
     top: 0;
     visibility: hidden;
     right: -10px;
-    position: fixed;
-    transition: transform .1s;
+    position: absolute;
+    transition: box-shadow 0.2s;
 }
 
 .ui-snackbar:hover {
     -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.13);
     -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.13);
     box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.13);
-    transform: scale(1.01, 1.01);
 }
 
-.squreAnimations {
+.ui-show-notification-cl {
     animation: showNotification .3s forwards;
     animation-timing-function: ease-out;
 }

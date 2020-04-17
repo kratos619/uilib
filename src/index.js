@@ -3,14 +3,19 @@ import Dropdown from './ui-material/js/dropdown';
 import Snackbar from './ui-material/js/Snackbar';
 new Tooltip(document.querySelectorAll('.ui-tooltip'));
 new Dropdown(document.querySelectorAll('.ui-dropdown'));
+new Snackbar()
+    .show({
+        message: "das",
+        timeOut: 10000,
+    });
 
 const button = document.querySelector('.clickme');
 button.addEventListener('click', (e) => {
     e.preventDefault();
     new Snackbar()
         .show({
-            message: 'Lorem ipsum dolor sit amet',
-            timeOut: 10000
+            message: "das",
+            timeOut: 10000,
         });
 
 })
