@@ -42,7 +42,7 @@ div .squre {
     top: 0;
     visibility: hidden;
     right: -10px;
-    position: absolute;
+    position: fixed;
     transition: box-shadow 0.2s;
 }
 
