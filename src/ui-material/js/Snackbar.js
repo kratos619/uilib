@@ -1,8 +1,8 @@
-import '../css/snackbar.css'
+import '../css/snackbar.css';
 class Snackbar {
     constructor() {
         this.init();
-        this.textAreaContainer = ''
+        // this.textAreaContainer = ''
     }
 
     __changeColor(type) {
@@ -12,7 +12,7 @@ class Snackbar {
             success: "#00C851",
             info: "#33b5e5",
             error: "#ff4444"
-        }
+        };
         return colorCode[type];
 
     }
@@ -22,16 +22,20 @@ class Snackbar {
                 <div class="ui-snckbar-messageArea"></div>
                   <div class="ui-snackbar-footer"></div>
         </div> */
+        this.mainParentDiv = document.createElement('div');
         this.snackbar = document.createElement('div');
         let textContentArea = document.createElement('div');
         let footer = document.createElement('div');
+        this.mainParentDiv.className = "ui-mainParent-element";
+        this.mainParentDiv.id = "ui-mainParentElement";
         this.snackbar.id = 'ui-snackbar-notification-main';
         this.snackbar.className = 'ui-snackbar';
         textContentArea.className = 'ui-snckbar-messageArea';
         footer.className = 'ui-snackbar-footer';
         this.snackbar.appendChild(textContentArea);
         this.snackbar.appendChild(footer);
-        document.getElementsByTagName('body')[0].appendChild(this.snackbar);
+        this.mainParentDiv.appendChild(this.snackbar);
+        document.getElementsByTagName('body')[0].appendChild(this.mainParentDiv);
         this.textAreaContainer = textContentArea;
     }
     show(options) {
@@ -40,7 +44,7 @@ class Snackbar {
         this.snackbar.classList.add('ui-show-notification-cl');
         this.snackbar.style.backgroundColor = this.__changeColor(options.type) || this.__changeColor("default");
         if (options.cbfun || options.cbfun instanceof Function) {
-            options.cbfun()
+            options.cbfun();
         }
 
         setTimeout(() => {

@@ -10,7 +10,7 @@ button.addEventListener('click', (e) => {
     new Snackbar()
         .show({
             message: "this is message",
-            timeOut: 10000,
+            timeOut: 11000,
         });
 
 })

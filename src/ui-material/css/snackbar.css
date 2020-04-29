@@ -5,22 +5,6 @@ div .squre {
 
 }
 
-/* div .squre:hover {
-    transition: transform 1s;
-    transform: rotate(360deg);
-} */
-
-/* .ui-snackbar:hover {
-    transition: transform 1s;
-    transform: rotate(360deg);
-} */
-/* html {
-    font-family: "Nunito",
-        Source Sans Pro,
-        Helvetica Neue,
-        Arial,
-        sans-serif !important;
-} */
 #ui-snackbar-notification-main .ui-snckbar-messageArea {
     font-size: 18px;
     line-height: 1.2;
@@ -36,6 +20,7 @@ div .squre {
     margin-top: 10px;
     padding: 5px;
     z-index: 10000;
+    -webkit-box-align: center;
     align-items: center;
     border-radius: 10px;
     text-align: center;
@@ -43,18 +28,39 @@ div .squre {
     visibility: hidden;
     right: -10px;
     position: fixed;
+    -webkit-transition: box-shadow 0.2s;
     transition: box-shadow 0.2s;
 }
 
 .ui-snackbar:hover {
-    -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.13);
-    -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.13);
     box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.13);
 }
 
 .ui-show-notification-cl {
+    -webkit-animation: showNotification .3s forwards;
     animation: showNotification .3s forwards;
-    animation-timing-function: ease-out;
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+}
+
+
+
+@-webkit-keyframes showNotification {
+    0% {
+        visibility: hidden;
+        opacity: 0;
+        right: 0px;
+    }
+
+    70% {
+        visibility: visible;
+        right: 46px;
+    }
+
+    100% {
+        visibility: visible;
+        right: 20px;
+    }
 }
 
 
