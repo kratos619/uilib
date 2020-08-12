@@ -21,22 +21,22 @@ export class DataTable extends BaseElement {
     return set1;
   }
 
-  getTableHeading(){
-        let sets = this.headerExtractor();
-        let trhead = "";
-        sets.forEach(function (values) {
-          trhead += `<th class="mdl-data-table__cell--non-numeric"> ${values} </th>\n`;
-        });
-        return trhead;
+  getTableHeading() {
+    let sets = this.headerExtractor();
+    let trhead = "";
+    sets.forEach(function (values) {
+      trhead += `<th> ${values} </th>\n`;
+    });
+    return trhead;
   }
-  getTableData(){
+  getTableData() {
     let sets = this.headerExtractor();
     let trtags = "";
     for (let row of this.data) {
       trtags += `<tr>`;
       let tdTags = "";
       sets.forEach(function (val) {
-        trtags += `<td class="mdl-data-table__cell--non-numeric"> ${row[val]} </td>`;
+        trtags += `<td> ${row[val] || "-"} </td>\n`;
       });
       trtags += `</tr>`;
     }
@@ -44,18 +44,17 @@ export class DataTable extends BaseElement {
   }
 
   getElementString() {
-    
     return `
-    <table class="mdl-data-table mdl-js-data-table mdl-data-table mdl-shadow--2dp">
+    <table>
       <thead>
         <tr>
         ${this.getTableHeading()}
         </tr>
       </thead>
-  <tbody>
-   ${this.getTableData()}
-  </tbody>
-</table>
-`;
+      <tbody>
+          ${this.getTableData()}
+      </tbody>
+    </table>
+    `;
   }
 }

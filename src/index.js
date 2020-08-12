@@ -1,7 +1,7 @@
-import "../node_modules/material-design-lite/material.min.css";
-import "../node_modules/material-design-lite/material.min.js";
 import { DataTable } from "./UI/DataTable";
-const { FleetDataService } = require("./services/fleet-data-service");
-const { fleet } = require("./data");
+// import { comments } from "./comments";
+import {fleet} from "./data"
 const root = document.getElementById("root");
+const root1 = document.getElementById("root1");
+let dt = new DataTable(fleet); 
 dt.appendToElement(root);
